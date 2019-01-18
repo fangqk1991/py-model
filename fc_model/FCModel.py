@@ -61,7 +61,7 @@ class FCModel(metaclass=ABCMeta):
                 if prop in property_class_map and isinstance(entity, FCModel):
                     data[json_key] = entity.fc_ret_map()
                 elif prop in item_class_map and isinstance(entity, list):
-                    data[json_key] = [item.fc_ret_map for item in entity]
+                    data[json_key] = [item.fc_ret_map() for item in entity]
                 else:
                     data[json_key] = entity
         return data
